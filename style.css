@@ -15,7 +15,7 @@
   --color-yellow-300: #f1c75b;
   --color-grey-200: #d8d8d8;
 
-  --text-preset-1: 300 3.5rem/1, 18 "Rubik", sans-serif;
+  --text-preset-1: 300 3.5rem/1.18 "Rubik", sans-serif;
   --text-preset-2: 300 2.5rem/1.18 "Rubik", sans-serif;
   --text-preset-3: 300 2rem/1.19 "Rubik", sans-serif;
   --text-preset-4: 300 1.5rem/1.17 "Rubik", sans-serif;
@@ -66,6 +66,19 @@ input {
     "profile work play study"
     "profile exercise social self-care";
   gap: var(--space-400);
+  max-width: 1000px;
+}
+
+.report {
+  border-radius: var(--space-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: right 15px top -10px;
+  background-size: 55px;
+  position: relative;
+  transform: translateZ(0);
 }
 
 .report--profile {
@@ -73,8 +86,63 @@ input {
   background-color: var(--color-navy-900);
 }
 
+.profile__avatar--wrapper {
+  width: 70px;
+  height: 70px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.profile__avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
 .profile__header {
+  border-radius: var(--space-200);
   background-color: var(--color-purple-600);
+  padding: var(--space-400);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-200);
+}
+
+.profile__desc {
+  font: var(--text-preset-6);
+}
+
+.profile__name {
+  font: var(--text-preset-2);
+}
+
+.report-filter__option {
+  font: var(--text-preset-5);
+}
+
+.report__content {
+  position: absolute;
+  top: var(--space-500);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--space-200);
+  background-color: var(--color-navy-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-200);
+  padding: var(--space-200);
 }
 
 .report-filter {
@@ -82,30 +150,67 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: var(--space-200);
+  padding: var(--space-400);
+}
+
+.report__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report__button {
+  display: inline-block;
+}
+
+.report__category {
+  font: var(--text-preset-5-medium);
+}
+
+.report__current {
+  font: var(--text-preset-1);
+}
+
+.report__previous {
+  font: var(--text-preset-6);
 }
 
 .report--work {
   grid-area: work;
+  background-color: var(--color-orange-300);
+  background-image: url("./images/icon-work.svg");
 }
 
 .report--play {
   grid-area: play;
+  background-color: var(--color-blue-300);
+  background-image: url("./images/icon-play.svg");
 }
 
 .report--study {
   grid-area: study;
+  background-color: var(--color-pink-400);
+  background-image: url("./images/icon-study.svg");
 }
 
 .report--exercise {
   grid-area: exercise;
+  background-color: var(--color-green-400);
+  background-image: url("./images/icon-exercise.svg");
 }
 
 .report--social {
   grid-area: social;
+  background-color: var(--color-purple-700);
+  background-image: url("./images/icon-social.svg");
 }
 
 .report--self-care {
   grid-area: self-care;
+  background-color: var(--color-yellow-300);
+  background-image: url("./images/icon-self-care.svg");
 }
 
 /* ===== TABLET ===== */
@@ -120,7 +225,7 @@ input {
   flex-shrink: 0;
   font-size: 0.6875rem;
   text-align: center;
-  margin-block: 10rem;
+  margin-block: 2rem;
 }
 
 .attribution a {
