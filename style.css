@@ -57,16 +57,25 @@ input {
   border: none;
 }
 
+/* ===== MOBILE (base) ===== */
+
 .dashboard {
   flex: 1;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
   grid-template-areas:
-    "profile work play study"
-    "profile exercise social self-care";
-  gap: var(--space-400);
-  max-width: 1000px;
+    "profile"
+    "work"
+    "play"
+    "study"
+    "exercise"
+    "social"
+    "self-care";
+  gap: var(--space-300);
+  max-width: 375px;
+  padding: var(--space-400) var(--space-200);
 }
 
 .report {
@@ -86,9 +95,20 @@ input {
   background-color: var(--color-navy-900);
 }
 
+.profile__header {
+  border-radius: var(--space-200);
+  background-color: var(--color-purple-600);
+  padding: var(--space-300);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-200);
+}
+
 .profile__avatar--wrapper {
   width: 70px;
   height: 70px;
+  flex-shrink: 0;
   background-color: var(--color-white);
   border-radius: 50%;
   padding: 2px;
@@ -106,27 +126,34 @@ input {
   display: block;
 }
 
-.profile__header {
-  border-radius: var(--space-200);
-  background-color: var(--color-purple-600);
-  padding: var(--space-400);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--space-200);
-}
-
 .profile__desc {
   font: var(--text-preset-6);
 }
 
 .profile__name {
-  font: var(--text-preset-2);
+  font: var(--text-preset-3);
+}
+
+.report-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-200);
+  padding: var(--space-300) var(--space-400);
 }
 
 .report-filter__option {
   font: var(--text-preset-5);
+}
+
+.report-filter__option:hover,
+.report-filter__option--active {
+  color: var(--color-white);
+}
+
+.report-filter__option:not(.report-filter__option--active) {
+  color: var(--color-purple-500);
 }
 
 .report__content {
@@ -141,17 +168,8 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--space-200);
+  gap: var(--space-100);
   padding: var(--space-200);
-}
-
-.report-filter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--space-200);
-  padding: var(--space-400);
 }
 
 .report__header {
@@ -170,7 +188,7 @@ input {
 }
 
 .report__current {
-  font: var(--text-preset-1);
+  font: var(--text-preset-2);
 }
 
 .report__previous {
@@ -213,14 +231,6 @@ input {
   background-image: url("./images/icon-self-care.svg");
 }
 
-/* ===== TABLET ===== */
-@media (min-width: 48em) {
-}
-
-/* ===== DESKTOP ===== */
-@media (min-width: 64em) {
-}
-
 .attribution {
   flex-shrink: 0;
   font-size: 0.6875rem;
@@ -230,4 +240,44 @@ input {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* ===== DESKTOP (2 mode) ===== */
+@media (min-width: 64em) {
+  .dashboard {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "profile work play study"
+      "profile exercise social self-care";
+    gap: var(--space-400);
+    max-width: 1000px;
+    padding: 0;
+  }
+
+  .profile__header {
+    padding: var(--space-400);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-200);
+  }
+
+  .profile__name {
+    font: var(--text-preset-2);
+  }
+
+  .report-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .report__content {
+    gap: var(--space-200);
+  }
+
+  .report__current {
+    font: var(--text-preset-1);
+  }
 }
