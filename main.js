@@ -41,6 +41,9 @@ async function init() {
     document.querySelectorAll(".report__current").forEach((el) => {
       el.textContent = "Error";
     });
+    document.querySelectorAll(".report__previous").forEach((el) => {
+      el.textContent = "Data unavailable";
+    });
   }
 }
 
