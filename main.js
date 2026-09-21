@@ -46,6 +46,7 @@ async function init() {
 
 filterButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    if (!data) return;
     filterButtons.forEach((b) =>
       b.classList.remove("report-filter__option--active"),
     );

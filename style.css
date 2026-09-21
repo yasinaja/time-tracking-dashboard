@@ -47,6 +47,7 @@ body {
   align-items: center;
   min-height: 100dvh;
   color: var(--color-white);
+  font-family: "Rubik", sans-serif;
 }
 
 button,
@@ -88,6 +89,7 @@ input {
   background-size: 55px;
   position: relative;
   transform: translateZ(0);
+  min-height: 160px;
 }
 
 .report--profile {
@@ -240,6 +242,24 @@ input {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* ===== TABLET (intermediate) ===== */
+@media (min-width: 40em) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "profile profile"
+      "work play"
+      "study exercise"
+      "social self-care";
+    max-width: 720px;
+    gap: var(--space-300);
+  }
+
+  .report--profile {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ===== DESKTOP (2 mode) ===== */
